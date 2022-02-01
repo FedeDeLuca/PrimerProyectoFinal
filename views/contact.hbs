@@ -1,0 +1,21 @@
+
+<div class="container">
+  <form action="/" class="container bg-light py-4 row mt-3" method="POST">
+    <h2 class=>Envianos tu comentario</h2>
+    <label for="name" hidden>Nombre</label>
+    <input class="mt-2 form-control" type="text" name="name" id="name" placeholder="Nombre"autofocus>
+
+    <label for="apellido" hidden>Apellido</label>
+    <input class="mt-2 form-control" type="text" name="lastName" id="lastName" placeholder="Apellido">
+
+    <label for="email" hidden>Email</label>
+    <input class="mt-2 form-control" type="email" name="email" id="email" placeholder="Email">
+
+    <label for="message" hidden></label>
+    <textarea class="mt-2 form-control" name="message" id="message" cols="30" rows="10" placeholder="Ingrese su mensaje"></textarea>
+    {{message}}
+    <input class="btn btn-primary mt-3" type="submit" value="Enviar">
+
+
+  </form>
+</div>

@@ -1,0 +1,32 @@
+body {
+  background-image: url("../assets/background.jpg");
+  height: 100vh;
+  background-repeat: no-repeat;
+}
+
+/* form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 50vh;
+  height: 55vh;
+  box-shadow: 3px 3px 10px black;
+  background-color: rgba(0, 0, 0, 0.504);
+}
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 100vh;
+} */
+
+input,
+textarea {
+  border: none;
+  box-shadow: 4px 8px 8px black;
+  margin: 0.5em;
+  line-height: 1.5em;
+}
