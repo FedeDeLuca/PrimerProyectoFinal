@@ -2,12 +2,29 @@
 const express = require("express");
 const router = express.Router();
 const nodemailer = require("nodemailer");
+const { body, validationResult } = require("express-validator");
 router.get("/", (req, res) => {
   res.render("index")
 });
 
+const validationRules = [
+  body("name", "Debe ingresar su nombre").exists().isLength({ min: 2 }),
+  body("lastName", "Debe ingresar su apellido").exists().isLength({ min: 2 }),
+  body("email", "Debe ingresar un email válido").exists().isEmail(),
+  body("message", "Su mensaje debe contener entre 10 y 300 caracteres")
+    .exists()
+    .isLength({ min: 10, max: 300 }),
+];
+
 // NODEMAILER
-router.post("/", (req,res) =>{
+router.post("/", validationRules, async (req,res) =>{
+  const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      const formData = req.body;
+      const arrWarnings = errors.array();
+      res.render("contact", { formData, arrWarnings });
+    } else {
+  
   const emailMsg = {
     to: "atencioncliente@empresa.com",
     from: req.body.email,
@@ -19,14 +36,20 @@ router.post("/", (req,res) =>{
     host: "smtp.mailtrap.io",
     port: 2525,
     auth: {
-      user: "44077177ae4f89",
-      pass: "159ee30771106a"
+      user: "afbeac59876d9e",
+      pass: "c0384dcf0c6eb4"
     }
   });
   
-  transport.sendMail(emailMsg);
-  res.render("contact", {
-    message: "mensaje enviado"
-  })
-});
+  const sendMailStatus = await transport.sendMail(emailMsg);
+  let sendMessage = "";
+  if (sendMailStatus.rejected.length) {
+    sendMessage = "No pudimos enviar su mensaje, intente nuevamente";
+  } else {
+    sendMessage = "Mensaje enviado";
+  }
+  res.render("contact", { sendMessage });
+}
+}
+);
   module.exports = router;

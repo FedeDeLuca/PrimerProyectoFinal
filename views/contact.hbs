@@ -1,19 +1,33 @@
 
 <div class="container">
-  <form action="/" class="container bg-light py-4 row mt-3" method="POST">
     <h2 class=>Envianos tu comentario</h2>
+  <form action="/" class="container bg-light py-4 row mt-3" method="POST">
+    {{#if sendMessage}}
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    {{sendMessage}}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                {{/if}}
+                {{#each arrWarnings}}
+                <div class="alert alert-danger" role="alert">
+                    {{msg}}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+
+
+                {{/each}}
     <label for="name" hidden>Nombre</label>
-    <input class="mt-2 form-control" type="text" name="name" id="name" placeholder="Nombre"autofocus>
+    <input class="mt-2 form-control" type="text" name="name" id="name" placeholder="Nombre"autofocus {{#if formData.name}} value="{{formData.name}}" {{/if}}>
 
     <label for="apellido" hidden>Apellido</label>
-    <input class="mt-2 form-control" type="text" name="lastName" id="lastName" placeholder="Apellido">
+    <input class="mt-2 form-control" type="text" name="lastName" id="lastName" placeholder="Apellido" {{#if formData.lastName}}
+    value="{{formData.lastName}}" {{/if}}>
 
     <label for="email" hidden>Email</label>
-    <input class="mt-2 form-control" type="email" name="email" id="email" placeholder="Email">
+    <input class="mt-2 form-control" type="email" name="email" id="email" placeholder="Email" {{#if formData.email}} value={{formData.email}} {{/if}}>
 
     <label for="message" hidden></label>
-    <textarea class="mt-2 form-control" name="message" id="message" cols="30" rows="10" placeholder="Ingrese su mensaje"></textarea>
-    {{message}}
+    <textarea class="mt-2 form-control" name="message" id="message" cols="30" rows="10" placeholder="Ingrese su mensaje" {{formData.message}}></textarea>
     <input class="btn btn-primary mt-3" type="submit" value="Enviar">
 
 
