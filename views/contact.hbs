@@ -3,19 +3,17 @@
     <h2 class=>Envianos tu comentario</h2>
   <form action="/" class="container bg-light py-4 row mt-3" method="POST">
     {{#if sendMessage}}
-                <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                    {{sendMessage}}
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-                {{/if}}
-                {{#each arrWarnings}}
-                <div class="alert alert-danger" role="alert">
-                    {{msg}}
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
+      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+    {{sendMessage}}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>{{/if}}
 
-
-                {{/each}}
+    {{#each arrWarnings}}
+      <div class="alert alert-danger" role="alert">
+     {{msg}}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>{{/each}}
+      
     <label for="name" hidden>Nombre</label>
     <input class="mt-2 form-control" type="text" name="name" id="name" placeholder="Nombre"autofocus {{#if formData.name}} value="{{formData.name}}" {{/if}}>
 
