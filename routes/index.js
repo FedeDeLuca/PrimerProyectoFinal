@@ -33,11 +33,11 @@ router.post("/", validationRules, async (req,res) =>{
   };
   
   const transport = nodemailer.createTransport({
-    host: "smtp.mailtrap.io",
-    port: 2525,
+    host: process.env.ES_HOST,
+    port: process.env.ES_PORT,
     auth: {
-      user: "afbeac59876d9e",
-      pass: "c0384dcf0c6eb4"
+      user: process.env.ES_USER,
+      pass: process.env.ES_PASS
     }
   });
   
