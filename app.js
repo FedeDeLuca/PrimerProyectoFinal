@@ -12,7 +12,13 @@ const routeLogin = require("./routes/login");
 const routeProducts = require("./routes/products");
 const routeContact = require("./routes/contact");
 const routeCatalogo = require("./routes/catalogo");
+const routeaddItem = require("./routes/addItem");
+
+
+
+
 app.use(express.static(path.join(__dirname, "public")));
+
 app.use(express.urlencoded({extended: false}));
 
 hbs.registerPartials(path.join(__dirname, "./views/partials"));
@@ -49,6 +55,9 @@ app.use("/login", routeLogin);
 app.use("/contact", routeContact);
 app.use("/products", secured, routeProducts);
 app.use("/catalogo", secured, routeCatalogo);
+app.use("/addItem", secured, routeaddItem);
+
+
 
 //app en localhost
 app.listen(PORT, (err) => {

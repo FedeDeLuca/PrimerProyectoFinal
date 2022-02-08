@@ -1,0 +1,23 @@
+<a href="/catalogo" class="btn btn-primary mt-2">Volver</a>
+<div class="container mt-5">
+<form action="/addItem" method="POST" class="bg-light">
+  <div class="m-3">
+  <h2 class="text-center">Agregar un nuevo producto</h2>
+    <label for="name" class="form-label">Nombre</label>
+    <input type="text" class="form-control" id="name" name="name">
+  </div>
+
+  <div class="m-3">
+    <label for="origin" class="form-label">Origen</label>
+    <input type="text" class="form-control" id="origin" name="origin">
+  </div>
+
+ <div class="m-3">
+    <label for="price" class="form-label">Precio</label>
+    <input type="number" class="form-control" id="price" name="price">
+  </div>
+
+ 
+  <button type="submit" class="btn btn-primary m-3">Enviar</button>
+</form>
+</div>
