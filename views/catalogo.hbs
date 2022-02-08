@@ -14,6 +14,7 @@
       <th scope="col">Nombre</th>
       <th scope="col">Origen</th>
       <th scope="col">Precio</th>
+      <th scope="col">Imagen</th>
       <th scope="col" class="text-center">Accion</th>
     </tr>
   </thead>
@@ -24,6 +25,7 @@
       <td>{{name}}</td>
       <td>{{origin}}</td>
       <td>${{price}}</td>
+      <td><img src={{imageURL}} alt="{{name}}"></td>
       <td class="text-center">
         <a href="/handleEdit/{{id}}"><button class="btn btn-danger">Borrar</button></a>
         <a href="/handleEdit/{{id}}"><button class="btn btn-warning btn-md">Modificar</button></a>

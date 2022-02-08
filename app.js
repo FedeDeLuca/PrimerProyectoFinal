@@ -1,11 +1,13 @@
 "use strict"
 const express = require("express");
 const path = require("path");
+const fileupload = require("express-fileupload");
 const hbs = require("hbs");
 const PORT = 3000;
 const session = require("express-session");
 require("dotenv").config();
 const app = express();
+
 //enrutador
 const routeIndex = require("./routes/index");
 const routeLogin = require("./routes/login");
@@ -15,7 +17,10 @@ const routeCatalogo = require("./routes/catalogo");
 const routeaddItem = require("./routes/addItem");
 
 
-
+app.use(fileupload ({
+  useTempFiles: true,
+  tempFileDir: "/tmp/"
+}));
 
 app.use(express.static(path.join(__dirname, "public")));
 

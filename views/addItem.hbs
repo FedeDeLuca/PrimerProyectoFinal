@@ -1,6 +1,6 @@
 <a href="/catalogo" class="btn btn-primary mt-2">Volver</a>
 <div class="container mt-5">
-<form action="/addItem" method="POST" class="bg-light">
+<form action="/addItem" method="POST" class="bg-light" enctype="multipart/form-data">
   <div class="m-3">
   <h2 class="text-center">Agregar un nuevo producto</h2>
     <label for="name" class="form-label">Nombre</label>
@@ -17,6 +17,10 @@
     <input type="number" class="form-control" id="price" name="price">
   </div>
 
+<div class="m-3">
+    <label for="imageFile" class="form-label">Imagen</label>
+    <input type="file" class="form-control" id="imageFile" name="imageFile">
+  </div>
  
   <button type="submit" class="btn btn-primary m-3">Enviar</button>
 </form>
