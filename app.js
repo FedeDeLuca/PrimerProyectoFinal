@@ -5,12 +5,13 @@ const hbs = require("hbs");
 const PORT = 3000;
 const session = require("express-session");
 require("dotenv").config();
+const app = express();
+//enrutador
 const routeIndex = require("./routes/index");
 const routeLogin = require("./routes/login");
 const routeProducts = require("./routes/products");
 const routeContact = require("./routes/contact");
-
-const app = express();
+const routeCatalogo = require("./routes/catalogo");
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({extended: false}));
 
@@ -47,6 +48,7 @@ app.use("/", isAuth, routeIndex);
 app.use("/login", routeLogin);
 app.use("/contact", routeContact);
 app.use("/products", secured, routeProducts);
+app.use("/catalogo", secured, routeCatalogo);
 
 //app en localhost
 app.listen(PORT, (err) => {

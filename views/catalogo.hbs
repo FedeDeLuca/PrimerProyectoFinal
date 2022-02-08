@@ -1,0 +1,33 @@
+<a href="products" class="btn btn-primary mt-1">Volver</a>
+<h1 class="text-center">Catálogo</h1>
+
+<table class="table bg-light table-striped mt-5">
+  <thead>
+    <tr class="text-center">
+      <th colspan="5">
+      <a href="/addItem"><button class="btn btn-primary">Agregar producto</button></a>
+    </th>
+    </tr>
+    
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Origen</th>
+      <th scope="col">Precio</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each data}}
+    <tr>
+      <td>{{id}}</td>
+      <td>{{name}}</td>
+      <td>{{origin}}</td>
+      <td>${{price}}</td>
+      <td class="btn-group">
+         <a href="deleteItem"><button class="btn btn-primary">Borrar</button></a>
+          <a href="addItem"><button class="btn btn-primary">Modificar</button></a>
+      </td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
